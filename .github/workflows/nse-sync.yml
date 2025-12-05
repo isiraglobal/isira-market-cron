@@ -1,0 +1,27 @@
+name: NSE Daily Sync
+
+on:
+  schedule:
+    - cron: "30 10 * * 1-5"    # 4 PM IST (after market closes)
+  workflow_dispatch: {}        # manual run enabled
+
+jobs:
+  sync-nse:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install requests
+
+      - name: Run NSE Sync
+        run: |
+          python sync_nse.py
