@@ -1,0 +1,17 @@
+name: Isira Market CronSync
+
+on:
+  schedule:
+    # Every 5 minutes
+    - cron: "*/5 * * * *"
+  workflow_dispatch: {}
+
+jobs:
+  call-cron-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call Base44 cronSync
+        run: |
+          curl -X POST "https://market.isira.club/api/functions/cronSync" \
+            -H "Content-Type: application/json" \
+            -d '{}'
