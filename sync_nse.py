@@ -17,7 +17,7 @@ file_name = f"cm{url_date}bhav.csv"
 zip_name = f"{file_name}.zip"
 
 # NSE official bhavcopy URL
-BHAVCOPY_URL = f"https://www1.nseindia.com/content/historical/EQUITIES/{year}/{month}/{zip_name}"
+BHAVCOPY_URL = f"https://nsearchives.nseindia.com/content/historical/EQUITIES/{year}/{month}/{zip_name}"
 
 # Base44 ingestion endpoint
 BASE44_ENDPOINT = "https://market.isira.club/api/functions/ingestDailyData"
